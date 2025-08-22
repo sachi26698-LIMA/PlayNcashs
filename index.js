@@ -14,7 +14,7 @@ dotenv.config();
 // ---- Firebase Admin init ----
 function initAdmin() {
   if (admin.apps.length) return;
-  const svc = process.env.FIREBASE_SERVICE_ACCOUNT;
+  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT || "{}");
   if (!svc) {
     console.error('Missing FIREBASE_SERVICE_ACCOUNT env variable.');
     process.exit(1);
